@@ -1,15 +1,24 @@
 class Solution {
     public int findGCD(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length;
-        int a = nums[0];
-        int b = nums[n - 1];
-        while(b != 0)
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
+        for (int num : nums) 
         {
+        min = Math.min(min, num);
+        max = Math.max(max, num);
+        }
+
+    
+        return gcd(min, max);
+    }
+
+    public int gcd(int a, int b) {
+        while (b != 0) {
             int temp = b;
             b = a % b;
             a = temp;
-        }
+        }   
         return a;
     }
 }
