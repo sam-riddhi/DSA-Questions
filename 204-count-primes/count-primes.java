@@ -6,10 +6,9 @@ class Solution {
 
         boolean[] prime = new boolean[n];
 
-        Arrays.fill(prime, true);
-
-        prime[0] = false;
-        prime[1] = false;
+        for (int i = 2; i < n; i++) {
+            prime[i] = true;
+        }
 
         for(int i = 2; i * i < n; i++) {
 
