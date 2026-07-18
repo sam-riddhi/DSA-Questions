@@ -1,21 +1,21 @@
 class Solution {
     public int findNumbers(int[] nums) {
-        int c = 0;
+        int count = 0;
         for(int i = 0; i < nums.length; i++)
         {
-            int count  = 0;
-            while(nums[i] != 0)
+            if(nums[i] >= 10 && nums[i] <= 99)
             {
-                int d = 0;
-                d = nums[i] % 10;
                 count++;
-                nums[i] = nums[i] / 10;
             }
-            if(count % 2 == 0)
+            else if(nums[i] >= 1000 && nums[i] <= 9999)
             {
-                c++;
-            } 
+                count++;
+            }
+            else if(nums[i] == 100000)
+            {
+                count++;
+            }
         }
-        return c;
+        return count;
     }
 }
